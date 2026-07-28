@@ -5,7 +5,6 @@ import Groq from "groq-sdk";
 import axios from "axios";
 
 dotenv.config();
-console.log("Unsplash Key:", process.env.UNSPLASH_ACCESS_KEY);
 
 const app = express();
 
