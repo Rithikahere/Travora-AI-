@@ -16,7 +16,10 @@ export default function ActivityCard({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const image = getActivityImage(activity, destination);
+  // Backend returns an object
+  const activityTitle = activity.title || "";
+  const image =
+    activity.image || getActivityImage(activityTitle, destination);
 
   return (
     <>
@@ -52,7 +55,7 @@ export default function ActivityCard({
         <div className="relative overflow-hidden">
           <img
             src={image}
-            alt={activity}
+            alt={activityTitle}
             className="
               h-48
               w-full
@@ -73,7 +76,7 @@ export default function ActivityCard({
         {/* Content */}
         <div className="p-6">
           <h3 className="text-lg font-bold leading-7 text-slate-800">
-            {activity}
+            {activityTitle}
           </h3>
 
           <p className="mt-3 text-slate-500 leading-7">
@@ -127,7 +130,7 @@ export default function ActivityCard({
       <ActivityModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        activity={activity}
+        activity={activityTitle}
         destination={destination}
         image={image}
       />

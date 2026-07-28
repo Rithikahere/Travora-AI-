@@ -24,9 +24,9 @@ export default function Timeline({ itinerary, destination }) {
 
       {/* Timeline */}
       <div className="relative ml-6 border-l-2 border-orange-200">
-        {itinerary.map((day, index) => (
+        {itinerary?.map((day, index) => (
           <motion.div
-            key={day.day}
+            key={day.day || index}
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.15 }}
@@ -65,7 +65,7 @@ export default function Timeline({ itinerary, destination }) {
               </h3>
 
               <div className="mt-6 grid gap-5 md:grid-cols-2">
-                {day.activities.map((activity, i) => (
+                {day.activities?.map((activity, i) => (
                   <ActivityCard
                     key={i}
                     activity={activity}
