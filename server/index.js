@@ -92,10 +92,9 @@ app.post("/generate", async (req, res) => {
 
   day.activities = updatedActivities;
 }
-console.log("Returned image:", image);
-    res.json({
+
+   res.json({
   success: true,
-  hello: "THIS IS THE NEW BACKEND",
   response: {
     ...itinerary,
     image,
